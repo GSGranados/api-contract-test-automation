@@ -12,7 +12,7 @@ describe(`${initialTestId}: POKE API - CONTRACT API AUTOMATION - NEGATIVE TESTS`
         const { count, next, previous, results } = response.body
         const berryList = new BerryList(count, next, previous, results);
         const berrySchema = await PokeAPIController.generateJSONSchema(berryList);
-        berryList.count = String(berryList.count);
+        berryList.setBerryCount(String(berryList.count));
         await PokeAPIController.verifyIncorrectResponseAgainstSchema(berryList, berrySchema);
     });
     it(`${generateId(initialTestId, increment)}: Validate POKE API Respone against JSON Schema - Delete Property`, async () => {

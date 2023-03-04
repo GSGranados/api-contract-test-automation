@@ -1,11 +1,11 @@
 import Berry from "./Berry";
 class BerryList {
-    count?: number | any;
+    count?: number | unknown;
     next?: string | null;
     previous?: string | null;
     results: Array<Berry>;
 
-    constructor(count: number, next: string | null, previous: string | null, results: Array<Berry> = []) {
+    constructor(count: number, next: string, previous: string, results: Array<Berry> = []) {
         this.count = count;
         this.next = next;
         this.previous = previous;
@@ -28,7 +28,7 @@ class BerryList {
         return this.results;
     }
 
-    setBerryCount(count: number) {
+    setBerryCount(count: number | unknown) {
         this.count = count;
     }
 
@@ -40,7 +40,7 @@ class BerryList {
         this.previous = previous;
     }
 
-    addBerryToResults(berryName: string | undefined, berryUrl: string | undefined) {
+    addBerryToResults(berryName: string, berryUrl: string) {
         this.results = [...this.results, new Berry(berryName, berryUrl)]
     }
 
