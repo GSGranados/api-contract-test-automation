@@ -4,8 +4,9 @@
   "description": "Code Repository for RAVN Code Challenge  API Contract Test Automation",
   "main": "index.js",
   "scripts": {
-    "test": "set TS_NODE_COMPILER_OPTIONS={\"module\": \"commonjs\" } & mocha src/test/**/*.spec.ts --timeout=15000",
-    "test:reports": "set TS_NODE_COMPILER_OPTIONS={\"module\": \"commonjs\" } & mocha src/test/**/*.spec.ts --timeout=15000 --reporter mochawesome --reporter-options reportDir=reports/"
+    "test:contract": "set TS_NODE_COMPILER_OPTIONS={\"module\": \"commonjs\" } & mocha src/test/pokeAPI.spec.ts --timeout=15000",
+    "test:negative": "set TS_NODE_COMPILER_OPTIONS={\"module\": \"commonjs\" } & mocha src/test/pokeAPI.negative.spec.ts --timeout=15000",
+    "test:all": "set TS_NODE_COMPILER_OPTIONS={\"module\": \"commonjs\" } & mocha src/test/**/*.spec.ts --timeout=15000 --reporter mochawesome --reporter-options reportDir=reports/"
   },
   "repository": {
     "type": "git",

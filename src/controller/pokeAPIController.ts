@@ -25,7 +25,7 @@ class PokeAPIController {
      * @returns a JSON dictionary describing the BerryList Structure
      */
     async generateJSONSchema(berryData: BerryList): Promise<toJsonSchema.JSONSchema3or4> {
-        const jsonSchema = await toJsonSchema(berryData);
+        const jsonSchema = toJsonSchema(berryData, { required: true });
         return jsonSchema;
     }
 
@@ -38,6 +38,16 @@ class PokeAPIController {
         const validator = new Validator();
         const schemaValid = validator.validate(berryData, berryDataSchema);
         expect(schemaValid.valid).to.be.true;
+    }
+    /**
+     * @function verifyIncorrectResponseAgainstSchema It makes use of the Schema validator to compare against an incorrect dictionary 
+     * @param berryData Berrylist object
+     * @param berryDataSchema Berrylist schema obtained from the Berrylist object
+     */
+    async verifyIncorrectResponseAgainstSchema(berryData: BerryList, berryDataSchema: any) {
+        const validator = new Validator();
+        const schemaValid = validator.validate(berryData, berryDataSchema);
+        expect(schemaValid.valid).to.not.be.true;
     }
 
 }

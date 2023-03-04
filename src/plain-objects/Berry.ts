@@ -1,9 +1,9 @@
 
 class Berry {
-    name;
-    url;
+    name?: string | undefined;
+    url?: string | undefined;
 
-    constructor(name: string, url: string) {
+    constructor(name: string | undefined, url: string | undefined) {
         this.name = name;
         this.url = url;
     }

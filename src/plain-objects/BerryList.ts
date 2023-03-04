@@ -1,8 +1,8 @@
 import Berry from "./Berry";
 class BerryList {
-    count: number;
-    next: string | null;
-    previous: string | null;
+    count?: number | any;
+    next?: string | null;
+    previous?: string | null;
     results: Array<Berry>;
 
     constructor(count: number, next: string | null, previous: string | null, results: Array<Berry> = []) {
@@ -40,7 +40,7 @@ class BerryList {
         this.previous = previous;
     }
 
-    addBerryToResults(berryName: string, berryUrl: string) {
+    addBerryToResults(berryName: string | undefined, berryUrl: string | undefined) {
         this.results = [...this.results, new Berry(berryName, berryUrl)]
     }
 
